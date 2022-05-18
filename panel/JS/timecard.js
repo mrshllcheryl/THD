@@ -75,9 +75,9 @@ function icon_now(num){
   if(num<=7 && num>3 ){
     return "clock"
   }else if(num<=3 && num>0){
-    return "timer"
+    return "clock.fill"
   }else if(num==0){
-    return "gift"
+    return "alarm"
   }else{
     return "tortoise"
   }
