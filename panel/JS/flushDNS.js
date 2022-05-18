@@ -2,7 +2,7 @@
 [Script]
 flushDNS = type=generic,timeout=10,script-path=https://github.com/mrshllcheryl/THD/blob/main/panel/JS/flushDNS.js
 // use "title" or "icon" or "color" or "server" in "argument":
-// flushDNS = type=generic,timeout=10,script-path=https://github.com/mrshllcheryl/THD/blob/main/panel/JS/flushDNS.js,argument=title=DNS FLush&icon=arrow.clockwise&color=#3d3d5b&server=false
+// flushDNS = type=generic,timeout=10,script-path=https://github.com/mrshllcheryl/THD/blob/main/panel/JS/flushDNS.js,argument=title=DNS FLush&icon=arrow.clockwise&color=#33CCFF&server=false
 
 [Panel]
 flushDNS = script-name=flushDNS,update-interval=600
