@@ -79,7 +79,7 @@ function icon_now(num){
   }else if(num==0){
     return "alarm"
   }else{
-    return "tortoise"
+    return "gamecontroller"
   }
 }
 
