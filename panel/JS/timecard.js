@@ -70,7 +70,7 @@ function datenotice() {
   }
 }
 
-//>图标依次切换乌龟、兔子、闹钟、礼品盒
+//>图标依次切换时钟、计时、闹钟、手柄
 function icon_now(num){
   if(num<=7 && num>3 ){
     return "clock"
