@@ -7,26 +7,28 @@ flushDNS = type=generic,timeout=10,script-path=https://github.com/mrshllcheryl/T
 [Panel]
 flushDNS = script-name=flushDNS,update-interval=600
 */
-
 !(async () => {
-    let panel = { title: "Flush DNS" },
-        showServer = true,
-        dnsCache;
-    if (typeof $argument != "undefined") {
-        let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
-        if (arg.title) panel.title = arg.title;
-        if (arg.icon) panel.icon = arg.icon;
-        if (arg.color) panel["icon-color"] = arg.color;
-        if (arg.server == "false") showServer = false;
+    const { wifi, v4 } = $network;
+    const v4IP = v4.primaryAddress;
+    if (!v4IP) {
+        $.done({
+            title: "未连接网络",
+            content: "请检查网络连接",
+            icon: "airplane",
+            "icon-color": "#00c8ff"
+        });
     }
-    if (showServer) {
-        dnsCache = (await httpAPI("/v1/dns", "GET")).dnsCache;
-        dnsCache = [...new Set(dnsCache.map((d) => d.server))].toString().replace(/,/g, "\n");
-    }
-    if ($trigger == "button") await httpAPI("/v1/dns/flush");
+
+    let dnsCache = (await httpAPI("/v1/dns", "GET")).dnsCache;
+    dnsCache = [...new Set(dnsCache.map((d) => d.server))].toString().replace(/,/g, "\n");
+    await httpAPI("/v1/dns/flush");
     let delay = ((await httpAPI("/v1/test/dns_delay")).delay * 1000).toFixed(0);
-    panel.content = `delay: ${delay}ms${dnsCache ? `\nserver:\n${dnsCache}` : ""}`;
-    $done(panel);
+    $done({
+        title: "DNS 缓存刷新",
+        content: `延迟：${delay} ms`,
+        icon: "leaf.arrow.triangle.circlepath",
+        "icon-color": "#33CCFF"
+    });
 })();
 
 function httpAPI(path = "", method = "POST", body = null) {
