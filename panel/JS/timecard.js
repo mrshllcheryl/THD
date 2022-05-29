@@ -152,13 +152,13 @@ function icon_now(num) {
 //>图标颜色
 function icon_color(num) {
     if (num <= 7 && num > 3) {
-        return '#ff9800'
+        return '#33CCFF'
     } else if (num <= 3 && num > 0) {
-        return '#9978FF'
+        return '#33CCFF'
     } else if (num == 0) {
-        return '#FF0000'
+        return '#33CCFF'
     } else {
-        return '#35C759'
+        return '#33CCFF'
     }
 }
 
