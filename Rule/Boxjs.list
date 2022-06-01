@@ -2,7 +2,7 @@
 # > UPDATED: 2022-06-01 09:45:23
 
 USER-AGENT,Boxjs*,PROXY
-DOMAIN,cdn.jsdelivr.net
-DOMAIN,jsdelivr.net
-DOMAIN,boxjs.com
+DOMAIN,cdn.jsdelivr.net,PROXY
+DOMAIN,jsdelivr.net,PROXY
+DOMAIN,boxjs.com,PROXY
 
