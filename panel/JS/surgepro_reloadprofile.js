@@ -10,7 +10,7 @@ let startTime = timeTransform(dateNow,dateTime)
 if ($trigger == "button") await httpAPI("/v1/profiles/reload");
 
   $done({
-      title:"Surge Pro",
+      title:"采菇凉滴小蘑菇",
       content:`启动时长: ${startTime}`,
 		icon: params.icon,
 		"icon-color":params.color
